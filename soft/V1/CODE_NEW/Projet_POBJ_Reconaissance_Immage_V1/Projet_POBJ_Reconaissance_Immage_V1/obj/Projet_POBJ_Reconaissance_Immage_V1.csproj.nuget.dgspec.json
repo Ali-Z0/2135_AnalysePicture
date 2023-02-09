@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Utilisateurs\\nicolas\\Desktop\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1.csproj": {}
+    "C:\\Users\\alizoubir\\Documents\\ETML-ES-2eme\\POBJ\\2135_AnalysePicture\\soft\\V1\\CODE_NEW\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1.csproj": {}
   },
   "projects": {
-    "D:\\Utilisateurs\\nicolas\\Desktop\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1.csproj": {
+    "C:\\Users\\alizoubir\\Documents\\ETML-ES-2eme\\POBJ\\2135_AnalysePicture\\soft\\V1\\CODE_NEW\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Utilisateurs\\nicolas\\Desktop\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1.csproj",
+        "projectUniqueName": "C:\\Users\\alizoubir\\Documents\\ETML-ES-2eme\\POBJ\\2135_AnalysePicture\\soft\\V1\\CODE_NEW\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1.csproj",
         "projectName": "Projet_POBJ_Reconaissance_Immage_V1",
-        "projectPath": "D:\\Utilisateurs\\nicolas\\Desktop\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1.csproj",
-        "packagesPath": "C:\\Users\\Nicolas Zaco\\.nuget\\packages\\",
-        "outputPath": "D:\\Utilisateurs\\nicolas\\Desktop\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1\\obj\\",
+        "projectPath": "C:\\Users\\alizoubir\\Documents\\ETML-ES-2eme\\POBJ\\2135_AnalysePicture\\soft\\V1\\CODE_NEW\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1.csproj",
+        "packagesPath": "C:\\Users\\alizoubir\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alizoubir\\Documents\\ETML-ES-2eme\\POBJ\\2135_AnalysePicture\\soft\\V1\\CODE_NEW\\Projet_POBJ_Reconaissance_Immage_V1\\Projet_POBJ_Reconaissance_Immage_V1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nicolas Zaco\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\alizoubir\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,7 +29,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -42,41 +40,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
-          "dependencies": {
-            "Emgu.CV": {
-              "target": "Package",
-              "version": "[4.5.5.4823, )"
-            },
-            "Google.Cloud.Vision.V1": {
-              "target": "Package",
-              "version": "[2.5.0, )"
-            },
-            "Microsoft.Azure.CognitiveServices.Vision.ComputerVision": {
-              "target": "Package",
-              "version": "[7.0.1, )"
-            },
-            "OpenCvSharp3-AnyCPU": {
-              "target": "Package",
-              "version": "[4.0.0.20181129, )"
-            }
-          },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
+            "net461"
           ],
           "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+          "warn": true
         }
       }
     }
