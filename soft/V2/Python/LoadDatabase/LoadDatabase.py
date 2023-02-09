@@ -26,7 +26,8 @@ for i in range(5):
     ax=plt.subplot(2,5,i+1+5)
     ax.title.set_text("Image gray " + str(i))
     grayscale = cv2.imread(image_path,0)
-    plt.imshow(grayscale)
+    edge = cv2.Canny(grayscale, 10, 20)
+    plt.imshow(edge)
 
 plt.show()
 
