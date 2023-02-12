@@ -13,28 +13,28 @@ img_folder=r'F:\ETML-ES\POBJ\2135_AnalysePicture\soft\soft\V2\Shapes-Dataset\out
 # Arguments
 parser = argparse.ArgumentParser()
 parser.add_argument('-A','--modeAff', type=bool, default=True, help="Active ou desactive le mode affichage des resultats")
-parser.add_argument('-Th','--T_upper', type=float, default=40, help="Valeur supérieur dans le Seuil d'hystérésis")
-parser.add_argument('-Tl','--T_lower', type=float, default=20, help="Valeur inférieur dans le Seuil d'hystérésis")
+parser.add_argument('-Th','--T_upper', type=float, default=50, help="Valeur supérieur dans le Seuil d'hystérésis")
+parser.add_argument('-Tl','--T_lower', type=float, default=10, help="Valeur inférieur dans le Seuil d'hystérésis")
 parser.add_argument('-n','--nbImg', type=float, default=6, help="Nombre d'images a analyser")
 parser.add_argument('-b','--nbBatch', type=float, default=2, help='Nombre de batch de figures')
 args = parser.parse_args()
 
 # ------ Hyperparamètres------
 # Valeur seuil inférieure dans le Seuil d'hystérésis
-T_lower = 10
+T_lower = args.T_lower
 # Valeur seuil supérieur dans le Seuil d'hystérésis
-T_upper = 50
+T_upper = args.T_upper
 
 # ------ Parametres interface ------
 # Nombre de batch de figures
-nbBatch = 20
+nbBatch = args.nbBatch
 # Nombre d'images a analyser
-nbImg = 20
+nbImg = args.nbImg
 # Noms des formes selon les cotés
 shapes = np.array(["Nothing", "Line", "Angle", "Triangle","Square","Pentagon",
                     "Hexagon", "Heptagon", "Octagon", "Nonagon", "Star"])
 # Si le mdoe affichage est activé
-modeAffichage = False
+modeAffichage = args.modeAff
 
 # Moyenne de succés de tous les batch
 MoyenneBatch = 0
