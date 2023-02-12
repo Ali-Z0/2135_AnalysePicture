@@ -21,9 +21,11 @@ args = parser.parse_args()
 
 # ------ Hyperparamètres------
 # Valeur seuil inférieure dans le Seuil d'hystérésis
-T_lower = 10
+#T_lower = 10
+T_lower = args.T_lower
 # Valeur seuil supérieur dans le Seuil d'hystérésis
-T_upper = 50
+#T_upper = 50
+T_upper = args.T_upper
 
 # ------ Parametres interface ------
 # Nombre de batch de figures
