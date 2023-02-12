@@ -21,22 +21,20 @@ args = parser.parse_args()
 
 # ------ Hyperparamètres------
 # Valeur seuil inférieure dans le Seuil d'hystérésis
-#T_lower = 10
-T_lower = args.T_lower
+T_lower = 10
 # Valeur seuil supérieur dans le Seuil d'hystérésis
-#T_upper = 50
-T_upper = args.T_upper
+T_upper = 50
 
 # ------ Parametres interface ------
 # Nombre de batch de figures
-nbBatch = args.nbBatch
+nbBatch = 20
 # Nombre d'images a analyser
-nbImg = args.nbImg
+nbImg = 20
 # Noms des formes selon les cotés
 shapes = np.array(["Nothing", "Line", "Angle", "Triangle","Square","Pentagon",
                     "Hexagon", "Heptagon", "Octagon", "Nonagon", "Star"])
 # Si le mdoe affichage est activé
-modeAffichage = args.modeAff
+modeAffichage = False
 
 # Moyenne de succés de tous les batch
 MoyenneBatch = 0
@@ -65,10 +63,11 @@ for b in range(nbBatch):
         plt.imshow(img)
 
         # Charge la meme image dans une variable mais en 2 couleurs
-        #grayscale = cv2.imread(image_path,0)
-        grayscale = cv2.cvtColor(np.float32(img), cv2.COLOR_RGB2GRAY)
+        grayscale = cv2.imread(image_path,0)
+        #grayscale = cv2.cvtColor(np.float32(img), cv2.COLOR_RGB2GRAY)
         # Utilisation d'une fonction pour détécter les bords de l'images
-        edged = cv2.Canny((grayscale*255).astype(np.uint8), T_lower, T_upper)
+        # edged = cv2.Canny((grayscale*255).astype(np.uint8), T_lower, T_upper)
+        edged = cv2.Canny(grayscale, T_lower, T_upper)
         # Trouve le nombre de contours et les charges dans une variable contenant leurs caractéristiques
         contours, hierarchy = cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
         # Selectionne l'un des contours si contenu existant
@@ -104,11 +103,11 @@ for b in range(nbBatch):
     # Affiche le résultat
     print("Moyenne figure " + str(b+1) + " : " + "%.2f" % Moyenne + " %")
 
-
-    # Sauvegarde la figure
-    plt.savefig("ShapesBatchN"+str(b+1))
-    # Affiche la figure du batch
+    # Si mode affichage
     if modeAffichage:
+        # Sauvegarde la figure
+        plt.savefig("ShapesBatchN"+str(b+1))
+        # Affiche la figure du batch
         plt.show()
 
 # Calcul la moyenne de succés de tous les batchs
