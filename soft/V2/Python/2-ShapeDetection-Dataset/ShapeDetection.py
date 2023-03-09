@@ -8,7 +8,7 @@ import argparse
 import os
 
 # Chemin d'accés au dossier contenant le dataset de formes
-img_folder=r'F:\ETML-ES\POBJ\2135_AnalysePicture\soft\soft\V2\Shapes-Dataset\output'
+img_folder=r'C:\Users\alizoubir\Documents\ETML-ES-2eme\POBJ\2135_AnalysePicture\soft\V2\Shapes-Dataset\output'
 
 # Arguments
 parser = argparse.ArgumentParser()
@@ -89,7 +89,7 @@ for b in range(nbBatch):
                 Moyenne += 1
             ax.title.set_text(shape + " vs " + realShape[0])
             # Ajoute l'image a la figure
-            plt.imshow(cv2.drawContours(grayscale, [cnt], 0, (0, 0, 255), 2))
+            plt.imshow(cv2.drawContours(grayscale, [cnt], 0, (0, 0, 255), 2), cmap = plt.cm.gray)
         else:
             # Si rien détécté, refait la manipulation
             i -= 1
