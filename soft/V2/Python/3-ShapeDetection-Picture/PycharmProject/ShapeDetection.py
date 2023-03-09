@@ -20,9 +20,9 @@ args = parser.parse_args()
 
 # ------ Hyperparamètres------
 # Valeur seuil inférieure dans le Seuil d'hystérésis
-T_lower = args.T_lower
+T_lower = 235
 # Valeur seuil supérieur dans le Seuil d'hystérésis
-T_upper = args.T_upper
+T_upper = 500
 
 # ------ Parametres interface ------
 # Noms des formes selon les cotés
@@ -39,12 +39,12 @@ img=mpimg.imread(image_path)
 
 # creating grid for subplots
 fig = plt.figure()
-fig.set_figheight(9)
-fig.set_figwidth(9)
+#fig.set_figheight(9)
+#fig.set_figwidth(9)
 
 # Prépare l'emplacement de l'image dans la figure sur 2 colonnes
-ax=plt.subplot(2,2,1)
-ax.title.set_text("Image")
+ax=plt.subplot(1,2,1)
+ax.title.set_text("Image sans contours")
 # Ajoute l'image à la figure
 plt.imshow(img)
 
@@ -58,18 +58,19 @@ edged = cv2.Canny(grayscale, T_lower, T_upper)
 contours, hierarchy = cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 nbContours = len(contours)
 # Selectionne l'un des contours si contenu existant
-if len(contours):
+if nbContours:
     for ContCnt in range(nbContours):
         cnt = contours[ContCnt]
         # Fait l'approximation de la forme du contour séléctionné
         approx = cv2.approxPolyDP(cnt, 0.01 * cv2.arcLength(cnt, True), True)
         # Détérmine le nom de la forme selon le nombre de cotés de la forme approximée
-        if(len(approx) < 11):
+        if len(approx) < 11:
             shape = shapes[len(approx)]
         else:
             shape = "Circle"
         # Prépare l'emplacement de l'image dans la figure sur la 2ème colonnes
-        ax=plt.subplot(2,2,2)
+        ax=plt.subplot(1,2,2)
+        ax.title.set_text("Image avec contours")
         # Reconvertit l'image en format couleur
         imgRecolored = cv2.cvtColor(grayscale, cv2.COLOR_GRAY2BGR)  # add this line
         # Affiche l'image avec les contours en couleurs
@@ -79,6 +80,6 @@ if len(contours):
 
 
 # Sauvegarde la figure
-plt.savefig("SavedFig"+time.strftime("%Y-%m-%d %H%M%S")+".png")
+plt.savefig('logs/SavedFig'+time.strftime("%Y-%m-%d %H%M%S")+".png")
 # Affiche la figure du batch
 plt.show()
