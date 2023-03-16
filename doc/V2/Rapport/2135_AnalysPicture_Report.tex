@@ -34,27 +34,6 @@
 \newdateformat{monthyeardate}{%
   \monthname[\THEMONTH], \THEYEAR}
 
-\pgfpagesdeclarelayout{boxed}
-{
-  \edef\pgfpageoptionborder{0pt}
-}
-{
-  \pgfpagesphysicalpageoptions
-  {%
-    logical pages=1,%
-  }
-  \pgfpageslogicalpageoptions{1}
-  {
-    border code=\pgfsetlinewidth{1pt}\pgfstroke,%
-    border shrink=\pgfpageoptionborder,%
-    resized width=.98\pgfphysicalwidth,%
-    resized height=.98\pgfphysicalheight,%
-    center=\pgfpoint{.5\pgfphysicalwidth}{.5\pgfphysicalheight}%
-  }%
-}
-\pgfpagesuselayout{boxed}
-\setlength{\columnsep}{0.5cm}
-
 % \renewcommand\thesubsection{\Alph{subsection}}
 
 \begin{document}
@@ -62,7 +41,6 @@
 \lhead{PROJET 2135}
 \chead {\today}
 \rhead{Analyseur d'images}
-\fontsize{14}{14}\selectfont
 
 % ------------------------- TITLE PAGE INSERTION ------------------------
 \input{Pages/titlepage} 
@@ -87,7 +65,7 @@
 \newpage
 \nocite{*}
 
-\bibliography{Biblio-Proj} 
-\bibliographystyle{ieeetr}
+%\bibliography{Biblio-Proj} 
+%\bibliographystyle{ieeetr}
 
 \end{document}
