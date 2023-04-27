@@ -7,17 +7,19 @@ import matplotlib.image as mpimg
 import argparse
 import os
 
-# Chemin d'accés au dossier contenant le dataset de formes
-img_folder=r'C:\Users\alizoubir\Documents\ETML-ES-2eme\POBJ\2135_AnalysePicture\soft\V2\Shapes-Dataset\output'
 
 # Arguments
 parser = argparse.ArgumentParser()
+parser.add_argument('-F','--dossierImg', type=str, default=r'C:\Users\alizoubir\Documents\ETML-ES-2eme\POBJ\2135_AnalysePicture\soft\V2\Shapes-Dataset\output', help="")
 parser.add_argument('-A','--modeAff', type=bool, default=True, help="Active ou desactive le mode affichage des resultats")
 parser.add_argument('-Th','--T_upper', type=float, default=50, help="Valeur supérieur dans le Seuil d'hystérésis")
 parser.add_argument('-Tl','--T_lower', type=float, default=10, help="Valeur inférieur dans le Seuil d'hystérésis")
 parser.add_argument('-n','--nbImg', type=float, default=6, help="Nombre d'images a analyser")
 parser.add_argument('-b','--nbBatch', type=float, default=2, help='Nombre de batch de figures')
 args = parser.parse_args()
+
+# Chemin d'accés au dossier contenant le dataset de formes
+img_folder=args.dossierImg
 
 # ------ Hyperparamètres------
 # Valeur seuil inférieure dans le Seuil d'hystérésis
