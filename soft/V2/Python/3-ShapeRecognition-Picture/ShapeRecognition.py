@@ -9,7 +9,6 @@ import time
 import os
 import cv2
 
-
 #%%
 # Arguments
 parser = argparse.ArgumentParser()
@@ -30,10 +29,10 @@ T_lower = args.T_lower
 T_upper = args.T_upper
 # ------ Parametres interface ------
 # Noms des formes selon les cotes
-shapes = np.array(["Nothing", "Line", "Angle", "Triangle", "Square", "Pentagon",
+shapes = np.array(["Nothing", "Line", "Angle", "Triangle", "Rectangle", "Pentagon",
                    "Hexagon", "Heptagon", "Octagon", "Nonagon", "Star"])
 
-if args.imagePath == 0 :
+if args.image == 0 :
     # Choix de l'image aleatoire
     file = random.choice(os.listdir(img_folder))
     # Joins le nom du fichier image avec chemin d'acces du dataset
@@ -57,26 +56,30 @@ plt.imshow(img)
 
 # %%
 # Charge la meme image dans une variable mais en 2 couleurs
-#grayscale = cv2.imread(image_path,0)
 grayscale = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 # Utilisation d'une fonction pour detecter les bords de l'images
-# edged = cv2.Canny((grayscale*255).astype(np.uint8), T_lower, T_upper)
 edged = cv2.Canny(grayscale, T_lower, T_upper)
 # Trouve le nombre de contours et les charges dans une variable contenant leurs caracteristiques
 contours, hierarchy = cv2.findContours(
-    edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 nbContours = len(contours)
+# Variable contenant les formes
+shape = []
+    
 # Selectionne l'un des contours si contenu existant
 if nbContours:
     for ContCnt in range(nbContours):
         cnt = contours[ContCnt]
         # Fait l'approximation de la forme du contour selectionne
-        approx = cv2.approxPolyDP(cnt, 0.01 * cv2.arcLength(cnt, True), True)
+        epsilon = 0.02 * cv2.arcLength(cnt, True)
+        approx = cv2.approxPolyDP(cnt, epsilon, True)
         # Determine le nom de la forme selon le nombre de cotes de la forme approximee
         if len(approx) < 11:
-            shape = shapes[len(approx)]
+            shape.append(shapes[len(approx)])
+            #shape[ContCnt] = shapes[len(approx)]
         else:
-            shape = "Circle"
+            shape.append("Circle")
+            #shape[ContCnt] = "Circle"
         # Prepare l'emplacement de l'image dans la figure sur la 2eme colonnes
         ax = plt.subplot(1, 2, 2)
         ax.title.set_text("Image avec contours")
