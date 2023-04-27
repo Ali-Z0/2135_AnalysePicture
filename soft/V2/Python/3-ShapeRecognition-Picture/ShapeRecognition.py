@@ -71,7 +71,7 @@ if nbContours:
     for ContCnt in range(nbContours):
         cnt = contours[ContCnt]
         # Fait l'approximation de la forme du contour selectionne
-        epsilon = 0.02 * cv2.arcLength(cnt, True)
+        epsilon = 0.03 * cv2.arcLength(cnt, True)
         approx = cv2.approxPolyDP(cnt, epsilon, True)
         # Determine le nom de la forme selon le nombre de cotes de la forme approximee
         if len(approx) < 11:
