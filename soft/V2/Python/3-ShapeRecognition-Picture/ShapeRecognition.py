@@ -12,12 +12,15 @@ import cv2
 #%%
 # Arguments
 parser = argparse.ArgumentParser()
-parser.add_argument('-I','--image', type=str, default=0, help="Chemin d'acces a l'image")
-parser.add_argument('-D','--DossImg', type=str, default=r'C:\Users\alizoubir\Documents\ETML-ES-2eme\POBJ\2135_AnalysePicture\soft\V2\Python\3-ShapeDetection-Picture\PycharmProject\Images-examples', help="Choisi une image aleatoire dans le dossier specifie")
-parser.add_argument('-Th','--T_upper', type=float, default=500, help="Valeur superieur dans le Seuil d'hysteresis")
-parser.add_argument('-Tl','--T_lower', type=float, default=225, help="Valeur inferieur dans le Seuil d'hysteresis")
+parser.add_argument('-i','--image', type=str, default=0, help="Chemin d'acces a l'image")
+parser.add_argument('-D','--DossImg', type=str, default=r'C:\Users\alizoubir\Documents\ETML-ES-2eme\POBJ\2135_AnalysePicture\soft\V2\Shapes-Dataset\Images-examples', help="Choisi une image aleatoire dans le dossier specifie")
+parser.add_argument('-Th','--T_upper', type=float, default=380, help="Valeur superieur dans le Seuil d'hysteresis")
+parser.add_argument('-Tl','--T_lower', type=float, default=100, help="Valeur inferieur dans le Seuil d'hysteresis")
 args = parser.parse_args()
 # %%
+
+# Th : 500
+# Tl : 225
 
 # Chemin d'acces au dossier contenant le dataset de formes
 img_folder = args.DossImg
@@ -41,7 +44,7 @@ if args.image == 0 :
     img = mpimg.imread(image_path)
 else:
     # Choisi l'image pointee
-    img = mpimg.imread(args.imagePath)
+    img = mpimg.imread(args.image)
 
 # creating grid for subplots
 fig = plt.figure()
@@ -82,7 +85,7 @@ if nbContours:
             #shape[ContCnt] = "Circle"
         # Prepare l'emplacement de l'image dans la figure sur la 2eme colonnes
         ax = plt.subplot(1, 2, 2)
-        ax.title.set_text("Image avec contours")
+        ax.title.set_text(shape[0] + " Nb. formes : " + str(nbContours))
         # Reconvertit l'image en format couleur
         imgRecolored = cv2.cvtColor(
         grayscale, cv2.COLOR_GRAY2BGR)
