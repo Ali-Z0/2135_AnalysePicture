@@ -1,6 +1,5 @@
 # 2135_AnalysePicture
-## Processing d’images avec OpenCV pour implémentation
-sur Raspberry PI.
+## Processing d’images avec OpenCV pour implémentation sur Raspberry PI.
 
 # Prérequis
 
