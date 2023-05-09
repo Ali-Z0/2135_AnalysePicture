@@ -14,11 +14,9 @@ Les autres prérequis sont mentionnés dans le fichier requirements.txt qui perm
 
 Ce git contient différents scripts utilisants différentes méthodes de reconnaisance / détéction d'images.
 
+Exemple d'éxecution de scripts via le terminal anaconda :
 ```bash
-2135_AnalysePicture\soft\V2\Python\3-ShapeRecognition-Approx
-```
-```bash
-ShapeRecognition-Approx.py -h
+2135_AnalysePicture\soft\V2\Python\3-ShapeRecognition-Approx python ShapeRecognition-Approx.py -h
 ```
 
 ## Structure
