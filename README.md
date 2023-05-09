@@ -36,4 +36,4 @@ l'arborescence contient les répertoire suivants :
 
 Projet réalisé à l'ETML-ES dans le cadre d'un projet de programmation orienté objet.
 
-Lausane le 09.05.2023
+Lausanne le 09.05.2023
