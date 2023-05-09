@@ -16,7 +16,7 @@ Ce git contient différents scripts utilisants différentes méthodes de reconna
 
 Exemple d'éxecution de scripts via le terminal anaconda :
 ```bash
-2135_AnalysePicture\soft\V2\Python\3-ShapeRecognition-Approx python ShapeRecognition-Approx.py -h
+2135_AnalysePicture\soft\V2\Python\4-ShapeRecognition-Approx python ShapeRecognition-Approx.py -h
 ```
 
 ## Structure
