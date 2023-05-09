@@ -1,5 +1,6 @@
 # 2135_AnalysePicture
 ## Processing d’images avec OpenCV pour implémentation sur Raspberry PI.
+Le projet consiste en la détéction d'image de pièces via une webcam sur raspberry Pi 3 ainsi que le déduction de la forme de celles-ci, selon plusieurs méthodes.
 
 # Prérequis
 
@@ -25,8 +26,14 @@ ShapeRecognition-Approx.py -h
 l'arborescence contient les répertoire suivants :
 | Nom  |  Contenu |
 |---|---|
-|  Doc | documentation, datasheet, fichiers word, pdf,...  |
-| hard  | schéma hardware, routage,...  |
-|  mec | dessins mecs, plans, pieces,...  |
-| soft | software, firmware, code source,... |
-| tools | outils/programmes nécessaires pour développement du projet |
+|  Doc | Documentation, datasheet, fichiers word, pdf,...  |
+| Hard  | Schéma hardware, routage,...  |
+|  Mec | Dessins mecs, plans, pieces,...  |
+| Soft | Software, firmware, code source,... |
+| Tools | Outils/programmes nécessaires pour développement du projet |
+
+## A propos
+
+Projet réalisé à l'ETML-ES dans le cadre d'un projet de programmation orienté objet.
+
+Lausane le 09.05.2023
