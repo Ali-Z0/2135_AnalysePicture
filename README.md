@@ -7,7 +7,7 @@ Ce projet utilise la distribution Anaconda avec la libraire OPENCV
 ```bash
 conda install -c conda-forge opencv
 ```
-Les autres prérequis sont mentionnés dans le fichier requirements.txt qui permet de créer un envirronement Anacond.
+Les autres prérequis sont mentionnés dans le fichier requirements.txt qui permet de créer un envirronement Anaconda.
 
 ## Utilisation
 
