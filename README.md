@@ -19,3 +19,15 @@ Ce git contient différents scripts utilisants différentes méthodes de reconna
 ```bash
 ShapeRecognition-Approx.py -h
 ```
+
+## Structure
+
+l'arborescence contient les répertoire suivants :
+
+nom    |   contenu
+-------------------------
+doc        documentation, datasheet, fichiers word, pdf,...
+hard       schéma hardware, routage,...
+mec        dessins mecs, plans, pieces,...
+soft       software, firmware, code source,...
+tools      outils/programmes nécessaires pour développement du projet
