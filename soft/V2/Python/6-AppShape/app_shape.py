@@ -1,39 +1,96 @@
 import tkinter as tk
 import numpy as np
-import random
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import argparse
-import time
-import os
-import cv2
+from PIL import ImageTk, Image  
+import shape_recognition_func
+
+IMAGE_RES = 450
+path_str = "COUCOU"
 
 # creates and runs an instance of the window
 window = tk.Tk()
 #makes the size of the widow
-window.geometry("600x300")
+window.geometry("1200x900")
+window.resizable(width=False, height=False)
 
-#sets a title for the screen
+# sets a title for the screen
 window.title("Shape detection and analysis")
 
 # Label chemin d'acces a l'image
 tk.Label(window,text='Chemin image').place(relx=0.03, rely=0.01)
 img_path_txt = tk.Text(window, height=1, width=27)
-img_path_txt.place(relx=0.03, rely=0.07)
+img_path_txt.place(relx=0.03, rely=0.04)
 
+# Label + texte TL 
+tk.Label(window,text='Seuil hysteresis bas : Th_l').place(relx=0.5, rely=0.01)
+tl_txt = tk.Text(window, height=1, width=16)
+tl_txt.insert(tk.END, 150)
+tl_txt.place(relx=0.5, rely=0.04)
 
+# Label + texte TH
+tk.Label(window,text='Seuil hysteresis haut : Th_h').place(relx=0.65, rely=0.01)
+th_txt = tk.Text(window, height=1, width=16)
+th_txt.insert(tk.END, 300)
+th_txt.place(relx=0.65, rely=0.04)
+
+# Label + texte FORME
+tk.Label(window,text='Forme déduite :').place(relx=0.5, rely=0.68)
+shape_txt = tk.Text(window, height=1, width=16, state= tk.DISABLED)
+shape_txt.place(relx=0.5, rely=0.71)
+
+# Label + texte Model ML
+tk.Label(window,text='Chemin model resnet-18 :').place(relx=0.03, rely=0.68)
+resnet_txt = tk.Text(window, height=1, width=40, state= tk.DISABLED)
+resnet_txt.insert(tk.END, 'HEY')
+resnet_txt.place(relx=0.03, rely=0.71)
 
 def btn_img_select():
-    path_str = img_path_txt.get(1.0, 'end')
-
-    
+    window.path_str = img_path_txt.get(1.0, 'end')
+    window.path_str = window.path_str.strip()
     try:
-        img = mpimg.imread(path_str)
-        plt.imshow(img)
+        # Ouverture image depuis chemin
+        img = Image.open(window.path_str)
+        img_display = img.resize((IMAGE_RES, IMAGE_RES), Image.LANCZOS)
+        img_display = ImageTk.PhotoImage(img_display)
+        # Affichage label avec image
+        lbl_image_loaded = tk.Label(image=img_display)
+        lbl_image_loaded.image = img_display
+        lbl_image_loaded.place(relx=0.03, rely=0.16)
+        # Suppresion image chargée
+        img_path_txt.delete(1.0, tk.END)
+        # Activation bouton coutour
+        btn_img_shape_sel['state'] = tk.NORMAL
     except ValueError:
         print("Image non-lisible")
 
+def btn_img_shape():
+    tl = tl_txt.get(1.0, tk.END).strip()
+    th = th_txt.get(1.0, tk.END).strip()
+    try:
+        # Conversion valeurs lue dans textes
+        tl = float(tl)
+        th = float(th)
+        # Chargement image avec coutours
+        img_analysis, shape = shape_recognition_func.getshape(window.path_str, th, tl)
+        img_shape = Image.fromarray(img_analysis)
+        img_shape = img_shape.resize((IMAGE_RES, IMAGE_RES), Image.LANCZOS)
+        img_shape = ImageTk.PhotoImage(img_shape)
+        # Affichage label image
+        lbl_image_shape = tk.Label(image=img_shape)
+        lbl_image_shape.image = img_shape
+        lbl_image_shape.place(relx=0.5, rely=0.16)
+        # Affichage forme
+        shape_txt.config(state=tk.NORMAL)
+        shape_txt.delete(1.0, tk.END)
+        shape_txt.insert(tk.END, shape)
+        shape_txt.config(state=tk.DISABLED)
+    except ValueError:
+        print("Erreur contours")
+        
 
-btn_img_select = tk.Button(text="Valider", command=btn_img_select).place(relx=0.03, rely=0.16)
+btn_img_select = tk.Button(text="Charger image", command=btn_img_select, width=25, height=2)
+btn_img_select.place(relx=0.03, rely=0.1)
+
+btn_img_shape_sel = tk.Button(text="Analyse d'image", command=btn_img_shape, width=25, height=2, state=tk.DISABLED)
+btn_img_shape_sel.place(relx=0.5, rely=0.1)
 
 window.mainloop()
