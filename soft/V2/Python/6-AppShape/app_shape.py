@@ -38,9 +38,9 @@ shape_txt = tk.Text(window, height=1, width=16, state= tk.DISABLED)
 shape_txt.place(relx=0.5, rely=0.71)
 
 # Label + texte Model ML
-tk.Label(window,text='Chemin model resnet-18 :').place(relx=0.03, rely=0.68)
-resnet_txt = tk.Text(window, height=1, width=40, state= tk.DISABLED)
-resnet_txt.insert(tk.END, 'HEY')
+tk.Label(window,text='Chemin model Machine learning, resnet-18 :').place(relx=0.03, rely=0.68)
+resnet_txt = tk.Text(window, height=1, width=40)
+resnet_txt.insert(tk.END, '../../ML_Models/resnet-18')
 resnet_txt.place(relx=0.03, rely=0.71)
 
 def btn_img_select():
@@ -87,10 +87,21 @@ def btn_img_shape():
         print("Erreur contours")
         
 
+def btn_img_describe():
+    try:
+        # Desciption de l'image
+        hey = 0
+    except ValueError:
+        print("Erreur description de l'image")
+        
+
 btn_img_select = tk.Button(text="Charger image", command=btn_img_select, width=25, height=2)
 btn_img_select.place(relx=0.03, rely=0.1)
 
 btn_img_shape_sel = tk.Button(text="Analyse d'image", command=btn_img_shape, width=25, height=2, state=tk.DISABLED)
 btn_img_shape_sel.place(relx=0.5, rely=0.1)
+
+btn_img_descr = tk.Button(text="Reconnaissance d'image\nMachine learning", command=btn_img_describe, width=25, height=4)
+btn_img_descr.place(relx=0.5, rely=0.75)
 
 window.mainloop()
