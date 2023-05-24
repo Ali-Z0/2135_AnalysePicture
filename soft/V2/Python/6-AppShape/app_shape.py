@@ -1,15 +1,15 @@
 import tkinter as tk
-import numpy as np
 from PIL import ImageTk, Image  
 import shape_recognition_func
+import img_descr
 
-IMAGE_RES = 450
+IMAGE_RES = 400
 path_str = "COUCOU"
 
 # creates and runs an instance of the window
 window = tk.Tk()
 #makes the size of the widow
-window.geometry("1200x900")
+window.geometry("1000x800")
 window.resizable(width=False, height=False)
 
 # sets a title for the screen
@@ -40,8 +40,13 @@ shape_txt.place(relx=0.5, rely=0.71)
 # Label + texte Model ML
 tk.Label(window,text='Chemin model Machine learning, resnet-18 :').place(relx=0.03, rely=0.68)
 resnet_txt = tk.Text(window, height=1, width=40)
-resnet_txt.insert(tk.END, '../../ML_Models/resnet-18')
+resnet_txt.insert(tk.END, 'C:/Users/alizoubir/Documents/ETML-ES-2eme/POBJ/2135_AnalysePicture/soft/V2/ML_Models')
 resnet_txt.place(relx=0.03, rely=0.71)
+
+# Label + texte resultat ML
+tk.Label(window,text='Analyse ML image :').place(relx=0.03, rely=0.85)
+ml_result_txt = tk.Text(window, height=1, width=35, state=tk.DISABLED)
+ml_result_txt.place(relx=0.03, rely=0.88)
 
 def btn_img_select():
     window.path_str = img_path_txt.get(1.0, 'end')
@@ -89,8 +94,14 @@ def btn_img_shape():
 
 def btn_img_describe():
     try:
-        # Desciption de l'image
-        hey = 0
+        ml_path = resnet_txt.get(1.0, tk.END).strip()
+        descr_eng, descr_fr = img_descr.getAnalyze(window.path_str, ml_path)
+        
+        ml_result_txt.config(state=tk.NORMAL)
+        ml_result_txt.delete(1.0, tk.END)
+        ml_result_txt.insert(tk.END, descr_eng)
+        ml_result_txt.config(state=tk.DISABLED)
+        
     except ValueError:
         print("Erreur description de l'image")
         
@@ -102,6 +113,6 @@ btn_img_shape_sel = tk.Button(text="Analyse d'image", command=btn_img_shape, wid
 btn_img_shape_sel.place(relx=0.5, rely=0.1)
 
 btn_img_descr = tk.Button(text="Reconnaissance d'image\nMachine learning", command=btn_img_describe, width=25, height=4)
-btn_img_descr.place(relx=0.5, rely=0.75)
+btn_img_descr.place(relx=0.03, rely=0.75)
 
 window.mainloop()
