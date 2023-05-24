@@ -8,3 +8,4 @@ l'arborescence contient les scripts suivants :
 |  3-ShapeDetection-Picture | Effectue une détection de forme et de contours, sans déduire la forme |
 | 4-ShapeRecognition-Approx | Détecte les formes et contours et déduit la forme des contours par une approximation en utilisant uniquement openCV |
 | 5-ShapeRecognition-ML | Détecte et déduis les objets selon un modèle de machine learning |
+| 6-AppShape | Application permettant d'analyser des images via les scripts précédents |
