@@ -40,7 +40,7 @@ shape_txt.place(relx=0.5, rely=0.71)
 # Label + texte Model ML
 tk.Label(window,text='Chemin model Machine learning, resnet-18 :').place(relx=0.03, rely=0.68)
 resnet_txt = tk.Text(window, height=1, width=40)
-resnet_txt.insert(tk.END, 'C:/Users/alizoubir/Documents/ETML-ES-2eme/POBJ/2135_AnalysePicture/soft/V2/ML_Models')
+resnet_txt.insert(tk.END, '../ML_Models')
 resnet_txt.place(relx=0.03, rely=0.71)
 
 # Label + texte resultat ML

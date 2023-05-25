@@ -1,16 +1,35 @@
 % ------------------------- MAIN TASK ---------------------------------
 \section{Reprise du projet}
+\paragraph{Le projet à été repris d'un ancien collègue, dont le cahier des charges initial était :}
 
-\subsection{État initial du projet}
-	
+Concevoir un système pouvant reconnaitre des formes simples à l’aide d’une caméra, et de la librairie OpenCV, et de pouvoir implémenter cela sur un Raspberry Pi.
+
+\subsection{État initial du projet repris}
+\paragraph{La version finale du projet repris était :} Forme non-achevée du code permettant de reconnaître des formes simples. Cependant, début de travail.
+
 \subsection{Méthode et objectifs de la reprise}
+L'objectif final du projet est d'avoir un code capable de dessiner les contours des formes.
+La prochaine étape de ce projet consistera à finaliser le code de reconnaissance des formes simples. Ce code sera capable de reconnaître des formes telles qu'un cercle, un carré ou un triangle, et d'afficher leurs noms soit sur une interface graphique, soit dans une console.
+Une fois que ce code sera développé, veuillez vous référer au cahier des charges (voir annexe) pour le reste des tâches de ce projet.
+
+Pour la suite du projet, j'ai décidé de choisi le langage Python, car elle permet une approche plus simple de ce genre d'algorithme et est plus facilement implémentable sur raspberry.
+
+\paragraph{Objectifs :}
+Mon objectif est dans un premier temps de faire fonctionner le code de reconnaissance d'image avec des formes simples issues d'une base de donnée, puis de l'étendre pour des images plus complexes réelles et complexes.
 
 
 %---
 \clearpage
 \section{Programmation Python}
+A des fins de simplification, j'ai décidé d'utiliser la distribution python Anaconda, qui permet de plus simplement gérer les paquets afin de mieux traiter les différentes dépendances, concurrent direct de pip.
 
-\subsection{Test implémentation OpenCV}
+\subsection{Implémentation OpenCV}
+La librairie de python-opencv n'est qu'une enveloppe autour du code C/C++ original. Il est normalement utilisé pour combiner les meilleures caractéristiques des deux langages, la performance de C/C++ et la simplicité de Python.
+
+\paragraph{Installation :}
+\begin{verbatim}
+	conda install -c conda-forge opencv
+\end{verbatim}
 
 \subsection{Reconnaissance de formes - dataset}
 
@@ -31,6 +50,20 @@
 	\subsubsection{Essais et étalonnage}
 	
 \subsection{Création de l'interface}
+
+\clearpage	
+\subsection{Description d'image - Machine learning}
+
+\subsubsection{Model utilisé}
+
+\subsubsection{Explication du code}
+
+\clearpage	
+\subsection{Application TKinter}
+
+\subsubsection{Fonctionnement}
+
+\subsubsection{Explication du code}
 
 %---
 \clearpage

@@ -1,6 +1,5 @@
 """ Script qui trace les contours d'images reelles """
 import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import cv2
 
@@ -45,10 +44,6 @@ def getshape(_img: str, Th: float, Tl: float):
                 #shape[ContCnt] = shapes[len(approx)]
             else:
                 shape.append("Circle")
-                #shape[ContCnt] = "Circle"
-            # Prepare l'emplacement de l'image dans la figure sur la 2eme colonnes
-            ax = plt.subplot(1, 2, 2)
-            ax.title.set_text(shape[0] + " Nb. formes : " + str(nbContours))
             # Reconvertit l'image en format couleur
             imgRecolored = cv2.cvtColor(
             grayscale, cv2.COLOR_GRAY2BGR)
