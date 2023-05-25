@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>py2flowchart</title>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/flowchart/1.14.0/flowchart.min.js"></script>
+    </head>
+    <body>
+        <div id="canvas"></div>
+        <pre id="code"></pre>
+        <script>
+            $("#code").html(code);
+            code= `
+start=>start: start
+operation1=>operation: import cv2
+operation2=>operation: import numpy as np
+operation3=>operation: import random
+operation4=>operation: import pandas as pd
+operation5=>operation: import matplotlib.pyplot as plt
+operation6=>operation: import matplotlib.image as mpimg
+operation7=>operation: import argparse
+operation8=>operation: import os
+operation9=>operation: parser = argparse.ArgumentParser()
+operation10=>operation: parser.add_argument('-F','--dossierImg', type=str, default=r'C:\Users\alizoubir\Documents\ETML-ES-2eme\POBJ\2135_AnalysePicture\soft\V2\Shapes-Dataset\output', help="")
+operation11=>operation: parser.add_argument('-A','--modeAff', type=bool, default=True, help="Active ou desactive le mode affichage des resultats")
+operation12=>operation: parser.add_argument('-Th','--T_upper', type=float, default=50, help="Valeur supérieur dans le Seuil d'hystérésis")
+operation13=>operation: parser.add_argument('-Tl','--T_lower', type=float, default=10, help="Valeur inférieur dans le Seuil d'hystérésis")
+operation14=>operation: parser.add_argument('-n','--nbImg', type=float, default=6, help="Nombre d'images a analyser")
+operation15=>operation: parser.add_argument('-b','--nbBatch', type=float, default=2, help='Nombre de batch de figures')
+operation16=>operation: args = parser.parse_args()
+operation17=>operation: img_folder=args.dossierImg
+operation18=>operation: T_lower = args.T_lower
+operation19=>operation: T_upper = args.T_upper
+operation20=>operation: nbBatch = args.nbBatch
+operation21=>operation: nbImg = args.nbImg
+operation22=>operation:                     "Hexagon", "Heptagon", "Octagon", "Nonagon", "Star"])
+operation23=>operation: modeAffichage = args.modeAff
+operation24=>operation: MoyenneBatch = 0
+condition25=>condition: for b in range(nbBatch)|past
+operation26=>operation: plt.figure(figsize=(15,15))
+operation27=>operation: i = 0
+operation28=>operation: Moyenne = 0
+operation29=>operation: missed = 0
+condition30=>condition: for i in range(nbImg)|past
+operation31=>operation: file = random.choice(os.listdir(img_folder))
+operation32=>operation: image_path= os.path.join(img_folder, file)
+inputoutput33=>inputoutput: img=mpimg.imread(image_path)
+operation34=>operation: ax=plt.subplot(2,nbImg,i+1)
+operation35=>operation: ax.title.set_text("Image " + str(i+1))
+operation36=>operation: plt.imshow(img)
+inputoutput37=>inputoutput: grayscale = cv2.imread(image_path,0)
+operation38=>operation: edged = cv2.Canny(grayscale, T_lower, T_upper)
+operation39=>operation: contours, hierarchy = cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+condition40=>condition: if len(contours)
+operation41=>operation: cnt = contours[0]
+operation42=>operation: approx = cv2.approxPolyDP(cnt, 0.01 * cv2.arcLength(cnt, True), True)
+condition43=>condition: if len(approx) < 11
+operation44=>operation: shape = shapes[len(approx)]
+operation45=>operation: shape = "Circle"
+operation46=>operation: ax=plt.subplot(2,nbImg,i+1+nbImg)
+operation47=>operation: realShape = str(file).split('_')
+condition48=>condition: if shape == realShape[0]
+operation49=>operation: Moyenne += 1
+operation50=>operation: pass
+operation51=>operation: ax.title.set_text(shape + " vs " + realShape[0])
+operation52=>operation: plt.imshow(cv2.drawContours(grayscale, [cnt], 0, (0, 0, 255), 2), cmap = plt.cm.gray)
+operation53=>operation: i -= 1
+operation54=>operation: missed += 1
+operation55=>operation: Moyenne = (Moyenne / (nbImg - missed))*100
+operation56=>operation: MoyenneBatch += Moyenne
+inputoutput57=>inputoutput: print("Moyenne figure " + str(b+1) + " : " + "%.2f" % Moyenne + " %")
+condition58=>condition: if modeAffichage
+operation59=>operation: plt.savefig("ShapesBatchN"+str(b+1))
+operation60=>operation: plt.show()
+operation61=>operation: pass
+operation62=>operation: MoyenneBatch = (MoyenneBatch / nbBatch)
+inputoutput63=>inputoutput: print("Moyenne totale : " + "%.2f" % MoyenneBatch + " %")
+end=>end: end
+start->operation1
+operation1->operation2
+operation2->operation3
+operation3->operation4
+operation4->operation5
+operation5->operation6
+operation6->operation7
+operation7->operation8
+operation8->operation9
+operation9->operation10
+operation10->operation11
+operation11->operation12
+operation12->operation13
+operation13->operation14
+operation14->operation15
+operation15->operation16
+operation16->operation17
+operation17->operation18
+operation18->operation19
+operation19->operation20
+operation20->operation21
+operation21->operation22
+operation22->operation23
+operation23->operation24
+operation24->condition25
+condition25(yes)->operation26
+operation26->operation27
+operation27->operation28
+operation28->operation29
+operation29->condition30
+condition30(yes)->operation31
+operation31->operation32
+operation32->inputoutput33
+inputoutput33->operation34
+operation34->operation35
+operation35->operation36
+operation36->inputoutput37
+inputoutput37->operation38
+operation38->operation39
+operation39->condition40
+condition40(yes)->operation41
+operation41->operation42
+operation42->condition43
+condition43(yes)->operation44
+condition43(no)->operation45
+operation44->operation46
+operation45->operation46
+operation46->operation47
+operation47->condition48
+condition48(yes)->operation49
+condition48(no)->operation50
+operation49->operation51
+operation50->operation51
+operation51->operation52
+condition40(no)->operation53
+operation53->operation54
+operation52->condition30
+operation54->condition30
+condition30(no)->operation55
+operation55->operation56
+operation56->inputoutput57
+inputoutput57->condition58
+condition58(yes)->operation59
+operation59->operation60
+condition58(no)->operation61
+operation60->condition25
+operation61->condition25
+condition25(no)->operation62
+operation62->inputoutput63
+inputoutput63->end
+
+`;
+            chart = flowchart.parse(code);
+            chart.drawSVG('canvas', {"line-width": 1, "arrow-end": "open"});
+        </script>
+    </body>
+</html>

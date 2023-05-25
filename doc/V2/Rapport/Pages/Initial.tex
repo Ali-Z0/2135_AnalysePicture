@@ -26,16 +26,33 @@ A des fins de simplification, j'ai décidé d'utiliser la distribution python An
 \subsection{Implémentation OpenCV}
 La librairie de python-opencv n'est qu'une enveloppe autour du code C/C++ original. Il est normalement utilisé pour combiner les meilleures caractéristiques des deux langages, la performance de C/C++ et la simplicité de Python.
 
-\paragraph{Installation :}
+\paragraph{Installation d'open-cv :}
 \begin{verbatim}
 	conda install -c conda-forge opencv
 \end{verbatim}
+En plus de ce package, j'utiliserais d'autres tels que numpy, matplotlib etc... (Voir fichier \textit{requirements.txt} dans dossier projets).
 
 \subsection{Reconnaissance de formes - dataset}
-
+	Pour commencer, j'ai donc décidé de reconnaitre des formes simples, à partir d'une base de donnée avec des images de forme épurées.
 	\subsubsection{Base de donnée}
-
+	Pour ce faire, j'ai utiliser la base de donnée "2D geometric shapes dataset – for machine learning and pattern recognition"\footnote{\verb|https://www.sciencedirect.com/science/article/pii/S2352340920309847|}La base de donnée est certes grande par rapport à comment je compte l'utiliser, sachant que je n'entraine pas un model, mais elle me permettra de faire des batch de test en sélectionnant aléatoirement des images, afin de mesurer la qualité de mon algorithme selon les différents hyper-paramètres selon plusieurs formes couleurs et contrastes.
+	
+	\paragraph{Caractéristiques de la base de donnée :}
+	
+	Formes; triangle, carré, pentagone, hexagone, heptagone, octogone, nonagone, cercle et étoile
+	\begin{center}
+		\begin{tabular}{l|l}
+			Couleur & RGB \\
+			Taille & 200x200 pixels \\
+			Nombre d'images & 10'000 \\
+			Rotation & -180°/+180° \\
+		\end{tabular}	
+	\end{center}
+	\clearpage
+	
 	\subsubsection{Explication du code}
+	
+	
 	
 	\subsubsection{Essais et étalonnage}
 	
