@@ -102,10 +102,29 @@ En plus de ce package, j'utiliserais d'autres tels que numpy, matplotlib etc... 
 	On peut voir que le taux de réussite n'est pas encore optimale mais ne descends presque jamais en dessous des 60\% sur une moyenne de 400 images ce qui me convient suffisamment pour continuer sur la suite du projet. J'ai décidé de conserver le mode \textit{\textbf{Tlow}} = 10 \textit{\textbf{Thigh}} = 50 avec \textit{Lis/charge en B+W} pour la version finale du script.
 
 \subsection{Reconnaissance de formes - image réelles}
+Afin d'atteindre l'objectif de reconnaissance d'images réelles, je m'y suis pris en deux parties avec deux scripts de complexités différents. L'un effectue une détection de forme et de contours sans déduire la forme, l'autre détecte les formes, tous les contours et déduit la forme de chacun des contours par une approximation en utilisant uniquement openCV.
 
 	\subsubsection{Images utilisées}
+	Pour tester mon algorithme, je n'ai pas utilisé des images optimale, sachant qu'une application industrielle impliquerait des images de meilleures qualité avec un éclairage adéquat, or j'ai utilisé mon téléphone et ai pris en photos des objet du quotidien.
+	
+	\paragraph{Problématique rencontrée : } Il est difficile d'optimiser un algorithme pour une détection de forme de pièces dont on ignore la nature, sachant que les images que j'ai utilisée sont détaillée et ont des ombres, beaucoup de contours sont détectés et filtrés ce qui rends parfois compliqué de définir quelle contour l'on souhaite décrire. La plupart du temps il s'agira du plus grand contour qui définira la forme de l'objet mais des erreurs peuvent avoir lieux. Si les seuils de détection des bords et les paramètres de la fonction qui les simplifie pour obtenir des formes moins complexes ne sont pas étalonnés pour des pièces spécifiques il es ardu de faire un script précis.
+	
+	\paragraph{Proposition de solution :} Pour un analyse d'image polyvalente et plus précise, l'on peut facilement implémenter sur python des modèles de machine learning entrainés sur de grandes quantités d'images. J'ai donc décidé d'également implémenter un script d'analyser d'image basé sur du machine learning plutôt que juste sur des fonction d'openCV\footnote{La libraire open-cv utilise également des modèles de machine learning}.
 	
 	\subsubsection{Explication du code}
+	Je vais ici expliquer le modèle plus complet du script, sachant qu'il reprends les éléments des moins complexes (y-compris celui des dataset) ce qui permet de tous les expliquer par surcroit.
+	
+	\clearpage
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.7\linewidth]{../Flowcharts/output}
+		\caption{Flowchart du script ShapeRecognition-Approx}
+		\label{fig:FlowShapeRecog}
+	\end{figure}
+	
+	\clearpage
+	
 	
 	\subsubsection{Essais et étalonnage}
 	

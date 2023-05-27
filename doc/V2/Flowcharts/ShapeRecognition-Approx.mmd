@@ -1,0 +1,43 @@
+flowchart TD
+    style P fill:#f111,stroke:#333,stroke-width:1px
+
+    P["Paramètres du script :
+    • -D : Dossier d'images pour choix aléatoire
+    • -i : Image pointée pour choix d'image individuel
+    • -A : Mode d'affichage des résultats
+    • -Th / -Tl : Valeurs dans le Seuil d'hystérésis "]
+    
+    DEBUT[\DEBUT\]
+    FIN[\Fin du script\]
+
+    LEC["Charge l'image selon mode aléatoire ou spécifique dans img"]
+    CH["Charge l'image en noire et blanc"]
+
+    BOR[["edged = cv2.Canny(grayscale, Tl, Th)
+    Utilisation d'une fonction pour detecter les bords de l'images dans edged"]]
+
+    TCNT[["contours, hierarchy = cv2.findContours(edged )
+    Trouve le nombre de contours de edged"]]
+
+    SICNT{"Si contour détécté"}
+
+    FOR1{Tant que tous les contours pas analysés}
+
+    PTN["Pointe sur le prochain contour"]
+
+    APP[["epsilon = 0.03 * cv2.arcLength(cnt, True)
+        approx = cv2.approxPolyDP(cnt, epsilon, True)
+        Fait l'approximation de la forme du contour selectionne"]]
+
+    DEF["Définis la forme du contour selon sa dimension
+     L'enrengistre dans le tableau des contours"]
+
+    DEBUT --> LEC --> CH --> BOR --> TCNT --> SICNT
+    SICNT -->|Oui| FOR1
+    SICNT ---->|Non| FIN
+
+    FOR1 -->|Oui| PTN
+    FOR1 ---->|Non| FIN
+
+    PTN --> APP --> DEF --> FOR1
+
