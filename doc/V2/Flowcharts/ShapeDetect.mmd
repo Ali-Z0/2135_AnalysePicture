@@ -1,0 +1,34 @@
+flowchart TD
+    style P fill:#f111,stroke:#333,stroke-width:1px
+
+    P["Paramètres du script :
+    • -D : Dossier de l'image pointée
+    • -A : Mode d'affichage des résultats
+    • -Th / -Tl : Valeurs dans le Seuil d'hystérésis 
+    • -n : Nombre d'image à analyer par batch
+    • -b : Nombre de batch d'images à analyser"]
+    
+    DEBUT[\DEBUT\]
+    FOR1{"Tant que nombre de batch < b"} --->|Non| L["Affichage selon mode"] --> FIN
+    FOR2{"Tant que nombre d'image < n"} --->|Non| L
+    FIN[\Fin du script\]
+
+    A["Choix aléatoire d'une image selon dossier pointé"]
+    B[Charge l'image dans img]
+    C[Charge l'image en 2 couleurs dans grayscale]
+    D[["edged = Acv2.Canny(grayscale, Tl, Th)
+    Fonction de détection de bords"]]
+    E[["contours, hierarchy = cv2.findContours(edged)
+    Charge les contours dans une variable contenant leurs caractéristiques "]]
+    DEBUT --> FOR1 -->|Oui| FOR2 -->|Oui| A --> B --> C --> D --> E --> SICNT
+
+    SICNT{Si contours existent} 
+    SICNT -->|Oui| F[Pointe sur la plus grande forme]
+    SICNT ---->|Non| FOR2
+    F --> G[["approx = cv2.approxPolyDP(cnt, 0.01 * cv2.arcLength(cnt, True), True)
+    Fait l'approximation de la forme du contour séléctionné"]]
+    G --> H{"Si le nombre de ligne < 11"}
+    H -->|Oui| I["Forme = tableauFormes[nbDeLignes]"]
+    H ---->|NON| CERCLE["Forme = Cercle"]
+
+    I & CERCLE --> K["Calcul performance script"] --> FOR2

@@ -15,7 +15,7 @@ Une fois que ce code sera développé, veuillez vous référer au cahier des cha
 Pour la suite du projet, j'ai décidé de choisi le langage Python, car elle permet une approche plus simple de ce genre d'algorithme et est plus facilement implémentable sur raspberry.
 
 \paragraph{Objectifs :}
-Mon objectif est dans un premier temps de faire fonctionner le code de reconnaissance d'image avec des formes simples issues d'une base de donnée, puis de l'étendre pour des images plus complexes réelles et complexes.
+Mon objectif est dans un premier temps de faire fonctionner le code de reconnaissance d'image avec des formes simples issues d'une base de donnée, puis de l'étendre pour des images plus complexes et réelles.
 
 
 %---
@@ -51,13 +51,56 @@ En plus de ce package, j'utiliserais d'autres tels que numpy, matplotlib etc... 
 	\clearpage
 	
 	\subsubsection{Explication du code}
+	L'objectif de ce code est de tester mon premier algorithme de reconnaissance de formes. 
 	
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[height=1.2\textwidth]{../Flowcharts/ShapeDetect_B.png}
+		\caption{Structogramme reconnaissance d'images}
+		\label{fig:structo1}
+	\end{figure}
 	
 	
 	\subsubsection{Essais et étalonnage}
+	Par la suite, j'ai pus obtenir des batteries d'analyses d'images comme sur la figure \ref{fig:batchexemple} avec des statistiques de réussites, ce qui m'a permis d'optimiser mes hyper-paramètres pour optimiser mon algorithme.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth]{Figures/BatchExemple}
+		\caption{Batch de 6 images}
+		\label{fig:batchexemple}
+	\end{figure}
 	
-%---
-\clearpage	
+	En sortie du script un pourcentage de réussite est donnée (voir figure \ref{fig:moyennebatchs}) où la moyenne des figures correspond à la moyenne des batchs.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{Figures/MoyenneBatchs}
+		\caption{Exemple de moyenne des batchs d'images}
+		\label{fig:moyennebatchs}
+	\end{figure}
+	
+	
+	\paragraph{Description des paramètres : } Les paramètres principaux que j'ai fait varier sont les seuils d'hysteresis de la fonction canny d'openCV. Cette fonction est un filtrage qui capture les valeurs de bord qui fluctuent au-dessus et au-dessous des valeurs seuil \textbf{\textit{Tlow}} et \textbf{\textit{Thigh}}.
+	
+	\paragraph{Mesures : }
+	\begin{center}
+		\begin{tabular}{l l | l l}
+			Réglage 1 & Réglage 2 & Mode Mesure & Moyenne de réussite \\
+			\hline
+			\textit{\textbf{Tlow}} = 10\quad\textit{\textbf{Thigh}} = 50 &  Convertis en B+W & 10img 10batchs & 51\%, 61.36\%, 70.75\% \\
+			\textit{\textbf{Tlow}} = 10\quad\textit{\textbf{Thigh}} = 50 &  Convertis en B+W & 20img 20batchs & 62.42\% \\
+			\textit{\textbf{Tlow}} = 10\quad\textit{\textbf{Thigh}} = 50 & Lis/charge en B+W & 20img 20batchs & 65.81\% \\
+			\textit{\textbf{Tlow}} = 10\quad\textit{\textbf{Thigh}} = 30 & Lis/Charge en B+W & 20img 20batchs & 62.94\% \\
+			\textit{\textbf{Tlow}} = 07\quad\textit{\textbf{Thigh}} = 45 & Lis/Charge en B+W & 20img 20batchs & 65\% \\
+			\textit{\textbf{Tlow}} = 09\quad\textit{\textbf{Thigh}} = 45 & Lis/Charge en B+W & 20img 20batchs & 65.21\% \\
+			\textit{\textbf{Tlow}} = 20\quad\textit{\textbf{Thigh}} = 40 & Lis/Charge en B+W & 20img 20batchs & 62.2\% \\
+		\end{tabular}
+	\end{center}
+	
+	Le réglage 2 est un test directement dans l'algorithme pour voir si il y avait une différence entre convertir l'image en 2 couleurs ou charger l'image en 2 couleurs, or il n'y a pas de différence visible dans les test.
+	
+	On peut voir que le taux de réussite n'est pas encore optimale mais ne descends presque jamais en dessous des 60\% sur une moyenne de 400 images ce qui me convient suffisamment pour continuer sur la suite du projet. J'ai décidé de conserver le mode \textit{\textbf{Tlow}} = 10 \textit{\textbf{Thigh}} = 50 avec \textit{Lis/charge en B+W} pour la version finale du script.
+
 \subsection{Reconnaissance de formes - image réelles}
 
 	\subsubsection{Images utilisées}
