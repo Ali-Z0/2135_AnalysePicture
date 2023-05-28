@@ -35,7 +35,7 @@ En plus de ce package, j'utiliserais d'autres tels que numpy, matplotlib etc... 
 \subsection{Reconnaissance de formes - dataset}
 	Pour commencer, j'ai donc décidé de reconnaitre des formes simples, à partir d'une base de donnée avec des images de forme épurées.
 	\subsubsection{Base de donnée}
-	Pour ce faire, j'ai utiliser la base de donnée "2D geometric shapes dataset – for machine learning and pattern recognition"\footnote{\verb|https://www.sciencedirect.com/science/article/pii/S2352340920309847|}La base de donnée est certes grande par rapport à comment je compte l'utiliser, sachant que je n'entraine pas un model, mais elle me permettra de faire des batch de test en sélectionnant aléatoirement des images, afin de mesurer la qualité de mon algorithme selon les différents hyper-paramètres selon plusieurs formes couleurs et contrastes.
+	Pour ce faire, j'ai utiliser la base de donnée "2D geometric shapes dataset – for machine learning and pattern recognition"\footnote{\href{https://www.sciencedirect.com/science/article/pii/S2352340920309847}{https://www.sciencedirect.com/science/article/pii/S2352340920309847}}La base de donnée est certes grande par rapport à comment je compte l'utiliser, sachant que je n'entraine pas un model, mais elle me permettra de faire des batch de test en sélectionnant aléatoirement des images, afin de mesurer la qualité de mon algorithme selon les différents hyper-paramètres selon plusieurs formes couleurs et contrastes.
 	
 	\paragraph{Caractéristiques de la base de donnée :}
 	
@@ -118,7 +118,7 @@ Afin d'atteindre l'objectif de reconnaissance d'images réelles, je m'y suis pri
 	
 	\begin{figure}[h!]
 		\centering
-		\includegraphics[width=0.7\linewidth]{../Flowcharts/output}
+		\includegraphics[width=0.65\linewidth]{../Flowcharts/output}
 		\caption{Flowchart du script ShapeRecognition-Approx}
 		\label{fig:FlowShapeRecog}
 	\end{figure}
@@ -126,14 +126,31 @@ Afin d'atteindre l'objectif de reconnaissance d'images réelles, je m'y suis pri
 	\clearpage
 	
 	
-	\subsubsection{Essais et étalonnage}
+	\subsubsection{Résultats de l'algorithme}
 	
-\subsection{Création de l'interface}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{Figures/ShapeRecogn_Exemple1}
+		\caption{Essai de l'algorithme plusieurs pièces}
+		\label{fig:shaperecognexemple1}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.8\linewidth]{Figures/ShapeRecogn_Exemple2}
+		\caption{Essai de l'algorithme pièce unique}
+		\label{fig:shaperecognexemple2}
+	\end{figure}
+	
+	On peut constater que l'algorithme arrive à détecter les contours et à tenter de déduire leurs formes. Sur la figure \ref{fig:shaperecognexemple1} les \textit{288} contours détectés ont leurs formes déduite et enregistrées dans un tableau appelé \textit{shape}. Sur la figure \ref{fig:shaperecognexemple2} plusieurs contours sont détectés au-lieu d'un, ceci due à la mauvaise condition de l'image. La forme principale déduite est un octogone car le scripts détecte 8 lignes. Si l'on ajuste le scripte pour plus simplifier les contours, on arriverait à voir les 5 lignes principales qui constituent l'objet.
 
 \clearpage	
 \subsection{Description d'image - Machine learning}
+J'ai donc décidé d'implémenter un script permettant d'exploiter un modèle de machine learning pour reconnaissance d'objets, il s'agit d'une approche finalement plus simple car sur python il est facile d'implémenter ce genre d'algorithme. Ce script permettra de compléter les lacunes des scripts précédents qui ne permettent pas de réellement décrire l'objet mais seulement des contours.
 
 \subsubsection{Model utilisé}
+Afin d'être facilement portable, il a fallut que je trouve un modèle léger mais suffisamment polyvalent, mon choix c'est donc porté sur \textit{resnet-18} ; Réseau neuronal résiduel sur 18 couches développé par microsoft qui prends $\sim 50MB$. Ce modèle est entrainé sur $11'689'512$ paramètres. Le modèle que j'ai utilisé est entrainé sur le dataset \textit{imagenet-1k} qui possède $1'281'167$ images d'entrainements.
+Lien du modèle : \href{https://huggingface.co/microsoft/resnet-18}{https://huggingface.co/microsoft/resnet-18}. 
 
 \subsubsection{Explication du code}
 
