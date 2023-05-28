@@ -13,7 +13,7 @@ def getAnalyze(_img: str, _model: str):
     os.chdir(_model)
     # Utilise les libraire pour récuperer les features du model
     feature_extractor = AutoFeatureExtractor.from_pretrained("resnet-18")
-    # Utiliser les libraire pour charger le model
+    # Utilise les libraire pour charger le model
     model = ResNetForImageClassification.from_pretrained("resnet-18")
     # Image d'entrée
     inputs = feature_extractor(img, return_tensors="pt")
@@ -23,9 +23,11 @@ def getAnalyze(_img: str, _model: str):
         # Charge les probabilités pour chaques labels de classification
         logits = model(**inputs).logits
         
-    # 
+    # Charge l'indexe du label le plus probable
     predicted_label = logits.argmax(-1).item()
+    # Charge le label le plus probable dans un string
     to_translate = model.config.id2label[predicted_label]
+    # Traduit le label en francais
     translated = GoogleTranslator(source='auto', target='fr').translate(to_translate)
     
     return to_translate, translated

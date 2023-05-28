@@ -1,0 +1,30 @@
+flowchart TD
+    DEBUT[\DEBUT\]
+    FIN[\FIN\]
+
+    LEC["Lecture de l'image"]
+    
+    FEAT[["feature_extractor = AutoFeatureExtractor.from_pretrained('resnet-18') 
+        Utilise les libraire pour récuperer les features du model"]]
+    
+    MOD[["model = ResNetForImageClassification.from_pretrained('resnet-18')
+        Utilise les libraire pour charger le model"]]
+
+    IN[["inputs = feature_extractor(img, return_tensors='pt')
+        Image d'entrée dans le modèle"]]
+
+    NOGRAD[\"Avec torch sans gradient"/]
+
+    LOG[["logits = model(**inputs).logits
+        Charge les probabilités pour chaques labels de classification"]]
+
+    PROB[["predicted_label = logits.argmax(-1).item()
+        Charge l'indexe du label le plus probable"]]
+
+    LBL[["to_translate = model.config.id2label[predicted_label]
+        Charge le label le plus probable dans un string"]]
+    
+    LBLFR[["translated = GoogleTranslator(source='auto', target='fr').translate(to_translate)
+        Traduit le label en francais"]]
+
+    DEBUT --> LEC --> FEAT --> MOD --> IN --> NOGRAD -.- LOG --> PROB --> LBL --> LBLFR --> FIN
