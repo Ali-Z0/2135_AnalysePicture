@@ -23,14 +23,22 @@
 % \renewcommand\thesubsection{\Alph{subsection}}
 
 \begin{document}
+	
 \pagestyle{fancy}
 \lhead{PROJET 2135}
 \chead {\today}
 \rhead{Analyseur d'images}
-
+	
 % ------------------------- TITLE PAGE INSERTION ------------------------
 \input{Pages/titlepage} 
-\clearpage
+
+\begingroup
+\pagestyle{empty}
+\null
+\newpage
+\endgroup
+
+
 
 % --------------------- TABLE OF CONTENTS  ------------------------------- 
 \tableofcontents
