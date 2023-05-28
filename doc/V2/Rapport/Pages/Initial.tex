@@ -164,10 +164,43 @@ Lien du modèle : \href{https://huggingface.co/microsoft/resnet-18}{https://hugg
 
 \clearpage	
 \subsection{Application TKinter}
+Afin de réunir tous les scripts j'ai décidé de développer une application avec une interface sur python, pour ce faire, j'ai utilisé le paquet \textit{PKinter} qui est une  bibliothèque graphique libre pour le langage Python, permettant la création d'interfaces graphiques. Faire une application graphique sur python simplifie également le déploiement sur raspberry.
 
 \subsubsection{Fonctionnement}
+TKinter permet d'utiliser des objet/widgets pour facilement mettre en place une interface graphique de façon très intuitive.
 
-\subsubsection{Explication du code}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{Figures/TKinter_widgets}
+	\caption{Widgets de TKinter}
+	\label{fig:tkinterwidgets}
+	\floatfoot{Source : \href{https://www.studytonight.com/tkinter/python-tkinter-widgets}{https://www.studytonight.com/tkinter/python-tkinter-widgets}}
+\end{figure}
+
+
+\paragraph{Implémentation des scripts :} Afin de réutiliser les algorithmes précédents j'ai dû les convertir en fonction avec paramètres et retours, puis de les \textit{import} dans l'application graphique.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.56\linewidth]{Figures/flowchart-fichiers}
+	\caption{Inclusion des différents fichier dans l'application}
+	\label{fig:flowchart-fichiers}
+\end{figure}
+
+
+\clearpage
+\subsubsection{Démonstration}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{Figures/Exemple_appli}
+	\caption{Application graphique}
+	\label{fig:exempleappli}
+\end{figure}
+
+En colant une image locale dans "\textit{Chemin image}" puis en la chargeant, on peut la visualiser sans analyse. Ensuite en réglant les seuils de détections, on peut lancer l'algorithme d'analyser des contours et de déduction de forme (A droite de la figure \ref{fig:exempleappli}). Enfin, en appuyant sur "\textit{Reconnaissance d'image Machine learning}" on peut lancer l'analyse du modèle ResNet18 afin de décrire l'image. 
+
+\paragraph{Implémentation pour webcam :} Lire le flux vidéo d'une webcam est similaire à charge une image via un lien, il serait facile de modifier l'application pour permettre de lire une image par un flux vidéo. L'application serait plus utile en temps-réelle il serait donc préférable de la modifier ou d'en faire une nouvelle à l'avenir. Ici il s'agit surtout de regrouper les 2 algorithmes précédents dans une application afin de facilement les tester, afin de les perfectionner.
 
 %---
 \clearpage
