@@ -178,7 +178,7 @@ TKinter permet d'utiliser des objet/widgets pour facilement mettre en place une 
 \end{figure}
 
 
-\paragraph{Implémentation des scripts :} Afin de réutiliser les algorithmes précédents j'ai dû les convertir en fonction avec paramètres et retours, puis de les \textit{import} dans l'application graphique.
+\paragraph{Implémentation des scripts :} Afin de réutiliser les algorithmes précédents j'ai dû les convertir en fonction avec paramètres et retours, puis de les \textit{importer} dans l'application graphique.
 
 \begin{figure}[h]
 	\centering
@@ -200,9 +200,30 @@ TKinter permet d'utiliser des objet/widgets pour facilement mettre en place une 
 
 En colant une image locale dans "\textit{Chemin image}" puis en la chargeant, on peut la visualiser sans analyse. Ensuite en réglant les seuils de détections, on peut lancer l'algorithme d'analyser des contours et de déduction de forme (A droite de la figure \ref{fig:exempleappli}). Enfin, en appuyant sur "\textit{Reconnaissance d'image Machine learning}" on peut lancer l'analyse du modèle ResNet18 afin de décrire l'image. 
 
-\paragraph{Implémentation pour webcam :} Lire le flux vidéo d'une webcam est similaire à charge une image via un lien, il serait facile de modifier l'application pour permettre de lire une image par un flux vidéo. L'application serait plus utile en temps-réelle il serait donc préférable de la modifier ou d'en faire une nouvelle à l'avenir. Ici il s'agit surtout de regrouper les 2 algorithmes précédents dans une application afin de facilement les tester, afin de les perfectionner.
+\paragraph{Implémentation pour webcam :} Lire le flux vidéo d'une webcam est similaire à charge une image via un lien, il serait facile de modifier l'application pour permettre de lire une image par un flux vidéo. L'application serait plus utile en temps-réelle il serait donc préférable de la modifier ou d'en faire une nouvelle à l'avenir. Ici il s'agit surtout de regrouper les 2 algorithmes précédents dans une application afin de facilement les tester, pour les perfectionner.
 
 %---
 \clearpage
 \section{Conclusion}
+
+Dans ce projet de programmation orientée objet, j'ai eu l'occasion de :
+\begin{itemizeFB}
+	\item[$\bullet$]  Développer des scripts permettant d'extraire et d'analyser des contours d'images.
+	\item[$\bullet$] Mettre en place et tester des algorithme sur des images réelle ou issues de dataset.
+	\item[$\bullet$] Implémenter un modèle de machine learning pour de la reconnaissance d'image.
+	\item[$\bullet$] Développer une application python regroupant les scripts principaux issus de ce travail.
+\end{itemizeFB}
+
+J'ai pu, perfectionner mes connaissances sur le language python ainsi que pu apprendre de nombreuses choses sur le traitement de l'image et la machine vision. J'ai trouvé ce travail très intéressant et diversifié, la liberté quant aux directions du projet était très agréable.
+
+\paragraph{Perspective du projet :} Je n'ai pas eu l'occasion d'implémenter les algorithme sur un raspberry. Pour le faire, il faudrait bien configurer l'interpréteur python avec la bonne version selon les paquets utilisés, le tout par la distribution Anaconda. Il faudrait également selon la webcam utilisée mettre en place la lecture de celle-ci et adapter les scripts existant pour lire ce flux plutôt que des images fixes.
+
+\vspace{120mm}
+\begin{tabular}{@{}p{0.4\textwidth}p{0.1\textwidth}p{0.4\textwidth}@{}}
+	
+	\hrulefill && \\
+	Ali Zoubir && \\
+	ETML-ES - Génie électrique \\
+	Lausanne, le \today \\
+\end{tabular}
 
