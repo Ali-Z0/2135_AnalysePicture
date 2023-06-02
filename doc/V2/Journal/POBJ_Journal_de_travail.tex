@@ -1,0 +1,89 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage[french]{babel}
+
+\hypersetup{
+	colorlinks=true, 
+	linktoc=all,     
+	linkcolor=blue,
+	linktocpage
+}
+
+\titleformat{\section}[display]{\Large\bfseries\itshape}{}{0ex}
+{\rule{\textwidth}{0.3pt}\vspace{0ex}
+	\centering}[\vspace{-1ex}\rule{\textwidth}{0.3pt}]
+
+\titleformat{\subsection}[display]{\large\itshape}{}{0ex}{}[]
+
+\newcommand{\unnumberedsection}[1]{
+	\newpage
+	\phantomsection
+	\addcontentsline{toc}{section}{#1}
+	\section*{#1}}
+\renewcommand\thesubsection{\Roman{subsection}}
+
+\parindent0mm
+\parskip1.5ex plus0.5ex minus0.5ex
+
+
+%%% Title page
+\title{\rule{\textwidth}{1.5pt}\vspace{0ex}
+	Journal de travail \\
+    2135 Analyse picture
+\vspace{-1ex}\rule{\textwidth}{1.5pt}}
+\author{Ali Zoubir}
+\date{Journal, le \today}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\maketitle
+		\thispagestyle{empty}
+		\thispagestyle{empty}
+	\end{titlepage}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \paragraph{\underline{09.02.2023 :}} Création du git, reprise du projet, choix d'une base de donnée pour les test et premier algorithme fonctionnel.
+
+        \paragraph{\underline{12.02.2023 :}} Amélioration de l'algorithme, essais et mesure de précision.
+
+        \paragraph{\underline{09.03.2023 :}} Création d'algorithme de reconnaissance de formes à partir photos réelles de pièces simples.
+
+        \paragraph{\underline{16.02.2023 :}} Amélioration de l'algorithme de reconnaissance de forme à partir de photos. Rédaction du rapport.
+
+        \paragraph{\underline{06.04.2023 :}} Création de flowchart, amélioration des algorithmes, documentation.
+
+        \paragraph{\underline{27.04.2023 :}} Étalonnage de l'algorithme de reconnaissance de formes.
+
+        \paragraph{\underline{09.05.2023 :}} Amélioration et ajout de contenus dans les scripts, organisation et documentation.
+
+        \paragraph{\underline{11.05.2023 :}} Nouveau script de reconnaissance d'objet avec modèle de machine learning.
+
+        \paragraph{\underline{23.05.2023 :}} Début création d'application qui regroupe les scripts.
+
+        \paragraph{\underline{24.05.2023 :}} Application graphique fonctionnelle, ajout du script de machine learning dans la GUI.
+
+        \paragraph{\underline{25.05.2023 :}} Documentation plus amélioration générale. 
+
+        \paragraph{\underline{27.05.2023 :}} Amélioration scripts, création de flowchart, rapports et commentaires.
+
+        \paragraph{\underline{28.05.2023 :}} Rédaction de rapport, création de figures, mise en page et finalisation.
+
+        \paragraph{\underline{02.06.2023 :}} Derniers ajustements et documentation du projet.
+
+        
+
+        
+        
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
