@@ -1,0 +1,6 @@
+\babel@toc {french}{}\relax 
+\beamer@sectionintoc {2}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {3}{Conception}{7}{0}{2}
+\beamer@sectionintoc {4}{Schématique}{12}{0}{3}
+\beamer@sectionintoc {5}{Conclusion}{17}{0}{4}
+\beamer@sectionintoc {6}{Questions ?}{19}{0}{5}

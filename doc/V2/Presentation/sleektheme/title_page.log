@@ -1,0 +1,245 @@
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.12.7)  13 DEC 2022 13:15
+ restricted system commands enabled.
+**title_page.tex
+(./title_page.tex
+LaTeX2e <2022-11-01> patch level 1
+Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
+Lua module: lualibs 2022-10-04 2.75 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2022-10-04 2.75 ConTeXt Lua libraries -- extended c
+ollection.
+luaotfload | conf : Root cache directory is "C:/texlive/2022/texmf-var/luatex-ca
+che/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2022-10-03.lua" from kpse-res
+olved path "c:/texlive/2022/texmf-dist/tex/luatex/luaotfload/fontloader-2022-10-
+03.lua".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.120
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "C:/texlive/2022/texmf-var/luatex-ca
+che/generic/names".
+Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
+Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
+Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'. L3 programm
+ing layer <2022-11-02>
+Inserting `tracingstacklevels' in `input_level_string'.
+! Undefined control sequence.
+l.8 \setbeamertemplate
+                    {title page}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8 \setbeamertemplate{t
+                      itle page}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+l.11 	\AddToShipoutPictureFG
+                          *{\includegraphics[width=90pt]{Images/background.p...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.11 	\AddToShipoutPictureFG*{\includegraphics
+                                            [width=90pt]{Images/background.p...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.14 	\includegraphics
+                    [height=14mm]{Images/logo}\par
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.18 		{\usebeamerfont
+                    {title}\usebeamercolor[fg]{title}\MakeUppercase{\insertt...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.18 		{\usebeamerfont{title}\usebeamercolor
+                                          [fg]{title}\MakeUppercase{\insertt...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<inserted text> \inserttitle 
+             
+l.18 ...color[fg]{title}\MakeUppercase{\inserttitle}
+                                                  \par}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.22 		{\usebeamerfont
+                    {subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\p...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.22 		{\usebeamerfont{subtitle}\usebeamercolor
+                                             [fg]{subtitle}\insertsubtitle\p...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.22 ...\usebeamercolor[fg]{subtitle}\insertsubtitle
+                                                  \par}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.27 		{\usebeamerfont
+                    {date}\usebeamercolor[fg]{date}\insertdate\par}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.27 		{\usebeamerfont{date}\usebeamercolor
+                                         [fg]{date}\insertdate\par}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.27 ...nt{date}\usebeamercolor[fg]{date}\insertdate
+                                                  \par}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.34 		{\usebeamerfont
+                    {author}\usebeamercolor[fg]{author}\insertauthor\par}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.34 		{\usebeamerfont{author}\usebeamercolor
+                                           [fg]{author}\insertauthor\par}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.34 ...hor}\usebeamercolor[fg]{author}\insertauthor
+                                                  \par}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.39 		{\usebeamerfont
+                    {institute}\usebeamercolor[fg]{institute}\insertinstitut...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.39 		{\usebeamerfont{institute}\usebeamercolor
+                                              [fg]{institute}\insertinstitut...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.39 ...sebeamercolor[fg]{institute}\insertinstitute
+                                                  \par}%
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+)
+! Emergency stop.
+<*> title_page.tex
+               
+*** (job aborted, no legal \end found)
+
+
+
+Here is how much of LuaTeX's memory you used:
+ 24 strings out of 477247
+ 100000,383344 words of node,token memory allocated 2079 words of node memory still in use:
+   14 hlist, 1 vlist, 5 rule, 7 local_par, 1 dir, 47 glue, 3 kern, 11 penalty, 1
+52 glyph, 37 attribute, 39 glue_spec, 37 attribute_list, 1 temp nodes
+   avail lists: 4:1,5:10
+ 21389 multiletter control sequences out of 65536+600000
+ 14 fonts using 418443 bytes
+ 17i,2n,22p,141b,106s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!
