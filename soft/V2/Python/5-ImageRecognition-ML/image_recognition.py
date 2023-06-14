@@ -12,7 +12,7 @@ from deep_translator import GoogleTranslator
 # Arguments
 parser = argparse.ArgumentParser()
 parser.add_argument('-i','--image', type=str, default=0, help="Chemin d'acces a l'image")
-parser.add_argument('-D','--DossImg', type=str, default=r'C:\Users\alizoubir\Documents\ETML-ES-2eme\POBJ\2135_AnalysePicture\soft\V2\Shapes-Dataset\images_objets')
+parser.add_argument('-D','--DossImg', type=str, default=r'C:\Users\Ady\Documents\ETML-ES\2eme\POBJ\2135_AnalysePicture\soft\V2\Shapes-Dataset\images_objets')
 args = parser.parse_args()
 # %%
 
@@ -41,7 +41,7 @@ plt.imshow(img)
 
 # %%
 # Pointe sur le dossier avec les models de machine learning
-os.chdir('C:/Users/alizoubir/Documents/ETML-ES-2eme/POBJ/2135_AnalysePicture/soft/V2/ML_Models')
+os.chdir('../../ML_Models')
 # Utilise les libraire pour récuperer les features du model
 feature_extractor = AutoFeatureExtractor.from_pretrained("resnet-18")
 # Utiliser les libraire pour charger le model
