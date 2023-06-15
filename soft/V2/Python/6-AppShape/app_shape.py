@@ -102,6 +102,10 @@ def btn_img_describe():
         ml_result_txt.insert(tk.END, descr_eng)
         ml_result_txt.config(state=tk.DISABLED)
         
+        resnet_txt.delete(1.0, tk.END) 
+        resnet_txt.insert(tk.END, "./")
+        resnet_txt.config(state=tk.DISABLED)
+        
     except ValueError:
         print("Erreur description de l'image")
         
